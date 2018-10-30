@@ -16,6 +16,6 @@ drop user USER_ID cascade; /* USER_ID 삭제 */
 
 create tablespace melon datafile 'PATH\FILE_NAME.dbf' size 20m; /* 저장할 파일 생성+: PATH\FILE_NAME.dbf = 저장할 경로, size20M =용량 */
 
-create user melon identified by java
- default tablespace melon
- quota unlimited on melon;
+create user melon identified by java /* USER_ID: melon*/
+ default tablespace melon /* tablesapce: melon */
+ quota unlimited on melon; /* tablesapce: melon */
