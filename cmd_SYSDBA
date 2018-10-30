@@ -13,3 +13,9 @@ USER_ID로 로그인하면 ERROR 나타남
  grant connect, resource to USER_ID;  /* 권한 리소스에 USER_ID를 연결 */
 
 drop user USER_ID cascade; /* USER_ID 삭제 */
+
+create tablespace melon datafile 'PATH\FILE_NAME.dbf' size 20m; /* 저장할 파일 생성+: PATH\FILE_NAME.dbf = 저장할 경로, size20M =용량 */
+
+create user melon identified by java
+ default tablespace melon
+ quota unlimited on melon;

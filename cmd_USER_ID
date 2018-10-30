@@ -1,1 +1,1 @@
-sqlplus USER_ID/USER_PW@localhost:PORT_NUM; /* USER_ID */
+sqlplus USER_ID/USER_PW@localhost:PORT_NUM; /* USER_ID to Login */
