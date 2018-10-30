@@ -1,1 +1,5 @@
 sqlplus USER_ID/USER_PW@localhost:PORT_NUM; /* USER_ID to Login */
+
+/* 방화벽(IPS)해제, 접속할 USER_ID 권한 여부 확인!! Tip) 접속 중 방화벽을 설정해도 명렁어 실행이된다. */
+
+sqlplus USER_ID/USER_PW@localhost:PORT_NUM; /* USER_ID to Login */

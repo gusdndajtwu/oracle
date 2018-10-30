@@ -1,6 +1,6 @@
 sqlplus DBA_ID/DBA_PW@localhost:PORT_NUM as sysdba; /* DBA Login */
 create user USER_ID identified by USER_PW; /* Create User ID */
- 
+
  /*
 USER_ID로 로그인하면 ERROR 나타남
  
@@ -9,13 +9,14 @@ USER_ID로 로그인하면 ERROR 나타남
  
 아래 명령어 입력
  */
- 
- grant connect, resource to USER_ID;  /* 권한 리소스에 USER_ID를 연결 */
-
+grant connect, resource to USER_ID;  /* 권한 리소스에 USER_ID를 연결 */
 drop user USER_ID cascade; /* USER_ID 삭제 */
 
-create tablespace melon datafile 'PATH\FILE_NAME.dbf' size 20m; /* 저장할 파일 생성+: PATH\FILE_NAME.dbf = 저장할 경로, size20M =용량 */
-
+/* 1. 테이블 스페이스 생성(저장매체 저장하기 때문에 메모리에 저장하는걸 막을 수 있다.)*/
+create tablespace melon
+datafile 'PATH\FILE_NAME.dbf' size 20m; /* 저장할 파일 생성+: PATH\FILE_NAME.dbf = 저장할 경로, size20M =용량 */
+/* 2. 접속할 계정 생성 */
 create user melon identified by java /* USER_ID: melon*/
- default tablespace melon /* tablesapce: melon */
- quota unlimited on melon; /* tablesapce: melon */
+default tablespace melon /* tablesapce: melon */
+quota unlimited on melon;(=quota 1m on USER_ID;) /* tablesapce: melon */
+/* 방화벽(IPS)해제, 접속할 USER_ID 권한 여부 확인 */
