@@ -1,0 +1,15 @@
+sqlplus DBA_ID/DBA_PW@localhost:PORT_NUM as sysdba; /* DBA Login */
+create user USER_ID identified by USER_PW; /* Create User ID */
+ 
+ /*
+USER_ID로 로그인하면 ERROR 나타남
+ 
+ ORA-01045: user USER_ID lacks CREATE SESSION privilege; logon denied 
+ USER_ID의 세션생성이 부족하여 로그인 할 수 없습니다.
+ 
+아래 명령어 입력
+ */
+ 
+ grant connect, resource to USER_ID;  /* 권한 리소스에 USER_ID를 연결 */
+
+drop user USER_ID cascade; /* USER_ID 삭제 */
